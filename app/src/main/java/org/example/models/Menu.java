@@ -32,4 +32,12 @@ public class Menu {
   public List<Dish> getDishes() {
     return dishes;
   }
+
+  public void setDishes(List<Dish> dishes) {
+    this.dishes = dishes;
+  }
+
+  public String getName() {
+    return name;
+  }
 }
