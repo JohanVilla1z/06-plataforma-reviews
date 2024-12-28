@@ -5,7 +5,11 @@ import org.example.models.Menu;
 import org.example.models.Restaurant;
 import org.example.models.Review;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class DataRepository {
   private static DataRepository instance;
