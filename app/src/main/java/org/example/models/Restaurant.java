@@ -10,12 +10,15 @@ public class Restaurant {
   private List<Review> reviews;
   private float averageRating;
 
-  public Restaurant(String name, String city) {
+  public Restaurant(String name, String city, Menu menu) {
     this.name = name;
     this.city = city;
-    this.menu = new Menu("Default Menu");
+    this.menu = menu;
     this.reviews = new ArrayList<>();
     this.averageRating = 0.0f;
+  }
+
+  public Restaurant() {
   }
 
   public void calculateAverageRating() {
