@@ -5,11 +5,22 @@ import java.util.List;
 
 public class Menu {
   private String name;
+  private String description;
   private List<Dish> dishes;
 
-  public Menu(String name) {
+  public Menu(String name, String description) {
     this.name = name;
+    this.description = description;
     this.dishes = new ArrayList<>();
+  }
+
+  public Menu(String name, String description, List<Dish> dishes) {
+    this.name = name;
+    this.description = description;
+    this.dishes = dishes;
+  }
+
+  public Menu() {
   }
 
   public void addDish(Dish dish) {
