@@ -1,4 +1,4 @@
-package org.example.data;
+package org.example.repositories;
 
 import org.example.models.Dish;
 import org.example.models.Menu;
