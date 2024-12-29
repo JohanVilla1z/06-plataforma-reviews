@@ -6,11 +6,13 @@ import java.util.List;
 public class Dish {
   private String name;
   private float price;
+  private String description;
   private List<Review> reviews;
 
-  public Dish(String name, float price) {
+  public Dish(String name, float price, String description) {
     this.name = name;
     this.price = price;
+    this.description = description;
     this.reviews = new ArrayList<>();
   }
 
