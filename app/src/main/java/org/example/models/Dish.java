@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Dish {
   private String name;
-  private float price;
+  private Float price;
   private String description;
   private List<Review> reviews;
 
@@ -16,8 +16,8 @@ public class Dish {
     this.reviews = new ArrayList<>();
   }
 
-  public float averageRating() {
-    float total = 0;
+  public Float averageRating() {
+    Float total = 0f;
     for (Review review : reviews) {
       total += review.getRating();
     }
@@ -30,11 +30,35 @@ public class Dish {
     }
   }
 
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setPrice(float price) {
+    this.price = price;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public void setReviews(List<Review> reviews) {
+    this.reviews = reviews;
+  }
+
+  public List<Review> getReviews() {
+    return reviews;
+  }
+
   public String getName() {
     return name;
   }
 
-  public float getPrice() {
+  public Float getPrice() {
     return price;
   }
 }
