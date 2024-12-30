@@ -8,7 +8,7 @@ public class Restaurant {
   private String city;
   private Menu menu;
   private List<Review> reviews;
-  private float averageRating;
+  private Float averageRating;
 
   public Restaurant(String name, String city, Menu menu) {
     this.name = name;
@@ -22,7 +22,7 @@ public class Restaurant {
   }
 
   public void calculateAverageRating() {
-    float total = 0;
+    Float total = 0f;
     for (Review review : reviews) {
       total += review.getRating();
     }
@@ -49,7 +49,31 @@ public class Restaurant {
     return menu;
   }
 
-  public float getAverageRating() {
+  public Float getAverageRating() {
     return averageRating;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
+
+  public void setMenu(Menu menu) {
+    this.menu = menu;
+  }
+
+  public void setReviews(List<Review> reviews) {
+    this.reviews = reviews;
+  }
+
+  public void setAverageRating(Float averageRating) {
+    this.averageRating = averageRating;
+  }
+
+  public List<Review> getReviews() {
+    return reviews;
   }
 }
