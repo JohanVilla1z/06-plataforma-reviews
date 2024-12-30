@@ -15,12 +15,15 @@ public class Main {
   public static void main(String[] args) {
     DataRepository dataRepository = DataRepository.getInstance();
     ConsoleUtils consoleUtils = new ConsoleUtils();
+
+    RestaurantService restaurantService = new RestaurantService(dataRepository);
+
     DishController dishController = new DishController();
     MenuController menuController = new MenuController();
-    RestaurantService restaurantService = new RestaurantService(dataRepository);
     RestaurantController restaurantController = new RestaurantController(restaurantService);
     MainMenuController mainMenuController = new MainMenuController(
-            new MainMenuService(consoleUtils, restaurantController, menuController, dishController)
+            new MainMenuService(restaurantController, menuController, dishController),
+            consoleUtils
     );
     mainMenuController.run();
   }
