@@ -34,6 +34,7 @@ public class DataRepository {
     return instance;
   }
 
+  //restaurants
   public void addRestaurant(Restaurant restaurant) {
     restaurants.put(restaurant.getName(), restaurant);
   }
@@ -48,6 +49,10 @@ public class DataRepository {
 
   public List<Restaurant> getAllRestaurants() {
     return new ArrayList<>(restaurants.values());
+  }
+
+  public void updateRestaurant(String restaurantName, Restaurant updatedRestaurant) {
+    restaurants.put(restaurantName, updatedRestaurant);
   }
 
   // menus
@@ -67,9 +72,21 @@ public class DataRepository {
     return new ArrayList<>(menus.values());
   }
 
+  public void addMenuToRestaurant(String restaurantName, String menuName, String menuDescription) {
+    menus.put(menuName, new Menu(menuName, menuDescription));
+    if (restaurants.get(restaurantName).getMenu() != null) {
+      restaurants.get(restaurantName).setMenu(menus.get(menuName));
+    }
+  }
+
   // platos
   public void addDish(Dish dish) {
     dishes.put(dish.getName(), dish);
+  }
+
+  public void addDishToMenu(String menuName, Dish dish) {
+    dishes.put(dish.getName(), dish);
+    menus.get(menuName).addDish(dish);
   }
 
   public Dish getDish(String name) {
