@@ -31,32 +31,23 @@ public class ConsoleUtils {
     }
   }
 
-  public LocalDate getLocalDate(String message) {
+  public Float getRating(String message) {
     try {
       System.out.println(message);
-      String input = scanner.nextLine();
-      return LocalDate.parse(input);
+      float value = scanner.nextFloat();
+      scanner.nextLine();
 
-    } catch (NullPointerException e) {
-      System.err.println("Entrada no puede ser null.");
-      return getLocalDate(message);
+      if (value < 0 || value > 5) {
+        System.err.println("Ingresa un número entre 0 y 5.");
+        return getRating(message);
+      }
 
-    } catch (Exception e) {
-      System.err.println("Ingresa una fecha con formato valido (yyyy-mm-dd).");
-      return getLocalDate(message);
-    }
-  }
-
-  public LocalTime getLocalTime(String message) {
-    try {
-      System.out.println(message);
-      String input = scanner.nextLine();
-      LocalTime value = LocalTime.parse(input);
       return value;
-
     } catch (Exception e) {
-      System.err.println("Ingresa una hora con formato valido (HH:mm).");
-      return getLocalTime(message);
+      System.err.println("Ingresa un número con formato valido.");
+      scanner.nextLine();
+      return getRating(message);
     }
   }
+
 }
