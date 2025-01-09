@@ -15,18 +15,26 @@ public class Restaurant {
     this.city = city;
     this.menu = menu;
     this.reviews = new ArrayList<>();
-    this.averageRating = 0.0f;
+    this.averageRating = calculateAverageRating();
+  }
+
+  public Restaurant(String name, String city) {
+    this.name = name;
+    this.city = city;
+    this.menu = new Menu();
+    this.reviews = new ArrayList<>();
+    this.averageRating = calculateAverageRating();
   }
 
   public Restaurant() {
   }
 
-  public void calculateAverageRating() {
+  public Float calculateAverageRating() {
     Float total = 0f;
     for (Review review : reviews) {
       total += review.getRating();
     }
-    this.averageRating = reviews.isEmpty() ? 0 : total / reviews.size();
+    return reviews.isEmpty() ? 0 : total / reviews.size();
   }
 
   public void addRestaurantReview(Review review) {

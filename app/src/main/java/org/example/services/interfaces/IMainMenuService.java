@@ -1,5 +1,9 @@
 package org.example.services.interfaces;
 
 public interface IMainMenuService {
-  void start();
+  void manageRestaurants();
+
+  void manageMenus();
+
+  void manageDishes();
 }
