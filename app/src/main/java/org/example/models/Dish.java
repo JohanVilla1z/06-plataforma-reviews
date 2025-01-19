@@ -4,22 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dish {
+  private Integer dishId;
   private String name;
-  private Float price;
   private String description;
+  private Float price;
   private List<Review> reviews;
 
-  public Dish(String name, float price, String description) {
+  private static Integer idCounter = 0;
+
+  public Dish(String name, String description, Float price) {
+    this.dishId = generateId();
     this.name = name;
     this.price = price;
     this.description = description;
+    this.price = price;
     this.reviews = new ArrayList<>();
+  }
+
+  private Integer generateId() {
+    return idCounter++;
   }
 
   public Float averageRating() {
     Float total = 0f;
     for (Review review : reviews) {
-      total += review.getRating();
+      total += review.getAverageRating();
     }
     return reviews.isEmpty() ? 0 : total / reviews.size();
   }
@@ -28,6 +37,18 @@ public class Dish {
     if (review instanceof DishReview) {
       reviews.add(review);
     }
+  }
+
+  public Integer getDishId() {
+    return dishId;
+  }
+
+  public void setDishId(Integer dishId) {
+    this.dishId = dishId;
+  }
+
+  public void setPrice(Float price) {
+    this.price = price;
   }
 
   public void setName(String name) {
