@@ -92,4 +92,8 @@ public class Dish {
   public Float getPrice() {
     return price;
   }
+
+  public void addReview(Review review) {
+    reviews.add(review);
+  }
 }
