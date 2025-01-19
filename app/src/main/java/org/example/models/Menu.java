@@ -26,6 +26,52 @@ public class Menu {
   }
 
   public Menu() {
+    this.dishes = new ArrayList<>(); 
+  }
+
+  private Integer generateId() {
+    return idCounter++;
+  }
+
+  public static Integer getIdCounter() {
+    return idCounter;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb
+            .append(name).append("\n")
+            .append(description).append("\n")
+            .append("Platos: ").append("\n")
+            .append(dishes.stream().map(dish -> dish.toString())).append("\n");
+
+
+    return sb.toString();
+  }
+
+  public static void setIdCounter(Integer idCounter) {
+    Menu.idCounter = idCounter;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Integer getMenuId() {
+    return menuId;
+  }
+
+  public void setMenuId(Integer menuId) {
+    this.menuId = menuId;
   }
 
   public void addDish(Dish dish) {
