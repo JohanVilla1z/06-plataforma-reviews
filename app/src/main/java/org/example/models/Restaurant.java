@@ -55,11 +55,14 @@ public class Restaurant implements IObservable {
   }
 
   public Float calculateAverageRating() {
-    Float total = 0f;
-    for (Review review : reviews) {
-      total += review.getRating();
-    }
-    return reviews.isEmpty() ? 0 : total / reviews.size();
+    Float average = (float) reviews.stream().mapToDouble(Review::getAverageRating).average().orElse(0);
+    this.notifyObservers("La calificación promedio del restaurante " + name + " ha cambiado a " + average);
+    return reviews.isEmpty() ? 0 : average;
+  }
+
+  public void addReview(Review review) {
+    reviews.add(review);
+    calculateAverageRating();
   }
 
   public void addRestaurantReview(Review review) {
