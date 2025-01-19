@@ -49,4 +49,35 @@ public class ConsoleUtils {
     }
   }
 
+  public Float getFloat(String message) {
+    Float input;
+
+    try {
+      System.out.println(message);
+
+      input = Float.parseFloat(scanner.nextLine());
+
+      return input;
+    } catch (NumberFormatException e) {
+      System.err.println("Ingresa un numero con formato valido.");
+      return getFloat(message);
+    }
+  }
+
+  public Boolean getBoolean(String prompt) {
+    Map<String, Boolean> responses = Map.of(
+            "s", true, "si", true, "y", true, "yes", true,
+            "n", false, "no", false
+    );
+    while (true) {
+      System.out.print(prompt);
+      String input = scanner.nextLine().trim().toLowerCase();
+      if (responses.containsKey(input)) {
+        return responses.get(input);
+      } else {
+        System.err.println("Error: Debe ingresar una respuesta valida (sí/no).");
+      }
+    }
+  }
+
 }
