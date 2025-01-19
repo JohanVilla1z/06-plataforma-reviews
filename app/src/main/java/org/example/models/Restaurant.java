@@ -1,16 +1,27 @@
 package org.example.models;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.example.models.interfaces.IObservable;
+import org.example.models.interfaces.IObserver;
 
-public class Restaurant {
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class Restaurant implements IObservable {
+  private Integer restaurantId;
   private String name;
   private String city;
   private Menu menu;
   private List<Review> reviews;
   private Float averageRating;
 
+  private final Set<IObserver> observerSet = new HashSet<>();
+
+  private static Integer idCounter = 0;
+
   public Restaurant(String name, String city, Menu menu) {
+    this.restaurantId = generateId();
     this.name = name;
     this.city = city;
     this.menu = menu;
@@ -27,6 +38,20 @@ public class Restaurant {
   }
 
   public Restaurant() {
+  }
+
+  private Integer generateId() {
+    return idCounter++;
+  }
+
+  @Override
+  public void addObserver(IObserver observer) {
+    observerSet.add(observer);
+  }
+
+  @Override
+  public void notifyObservers(String message) {
+    observerSet.forEach(observer -> observer.update(message));
   }
 
   public Float calculateAverageRating() {
