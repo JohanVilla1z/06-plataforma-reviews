@@ -15,7 +15,6 @@ public class Dish {
   public Dish(String name, String description, Float price) {
     this.dishId = generateId();
     this.name = name;
-    this.price = price;
     this.description = description;
     this.price = price;
     this.reviews = new ArrayList<>();
@@ -31,6 +30,17 @@ public class Dish {
       total += review.getAverageRating();
     }
     return reviews.isEmpty() ? 0 : total / reviews.size();
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb
+            .append("    ").append(name).append(" - ")
+            .append("Descripcion: ").append(description).append(" - ")
+            .append("Precio: $").append(price);
+
+    return sb.toString();
   }
 
   public void addDishReview(Review review) {
