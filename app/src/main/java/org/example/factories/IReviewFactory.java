@@ -4,7 +4,7 @@ import org.example.models.DishReview;
 import org.example.models.RestaurantReview;
 
 public interface IReviewFactory {
-  DishReview createDishReview(String comment, float rating);
+  DishReview createDishReview(String comment, Float presentationRating, Float tasteRating);
 
-  RestaurantReview createRestaurantReview(String comment, float rating);
+  RestaurantReview createRestaurantReview(String comment, Float serviceRating, Float environmentRating, Float MenuRating);
 }

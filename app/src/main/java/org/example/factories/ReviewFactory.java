@@ -4,13 +4,14 @@ import org.example.models.DishReview;
 import org.example.models.RestaurantReview;
 
 public class ReviewFactory implements IReviewFactory {
+
   @Override
-  public DishReview createDishReview(String comment, float rating) {
-    return new DishReview(comment, rating);
+  public DishReview createDishReview(String comment, Float presentationRating, Float tasteRating) {
+    return new DishReview(comment, presentationRating, tasteRating);
   }
 
   @Override
-  public RestaurantReview createRestaurantReview(String comment, float rating) {
-    return new RestaurantReview(comment, rating);
+  public RestaurantReview createRestaurantReview(String comment, Float serviceRating, Float environmentRating, Float menuRating) {
+    return new RestaurantReview(comment, serviceRating, environmentRating, menuRating);
   }
 }
