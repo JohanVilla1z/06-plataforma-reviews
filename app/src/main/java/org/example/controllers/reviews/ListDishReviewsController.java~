@@ -1,0 +1,4 @@
+package org.example.controllers.reviews;
+
+public class ListDishReviewsController {
+}
