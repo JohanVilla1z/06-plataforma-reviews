@@ -4,17 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Menu {
+  private Integer menuId;
   private String name;
   private String description;
   private List<Dish> dishes;
 
+  private static Integer idCounter = 0;
+
   public Menu(String name, String description) {
+    this.menuId = generateId();
     this.name = name;
     this.description = description;
     this.dishes = new ArrayList<>();
   }
 
   public Menu(String name, String description, List<Dish> dishes) {
+    this.menuId = generateId();
     this.name = name;
     this.description = description;
     this.dishes = dishes;
