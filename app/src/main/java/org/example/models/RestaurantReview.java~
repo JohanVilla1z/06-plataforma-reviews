@@ -13,7 +13,7 @@ public class RestaurantReview extends Review {
   }
 
   public RestaurantReview(String comment, Float rating) {
-    super(comment);
+    super(comment, rating);
   }
 
   @Override
