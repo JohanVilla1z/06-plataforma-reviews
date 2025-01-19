@@ -1,7 +1,6 @@
 package org.example.utils;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.util.Map;
 import java.util.Scanner;
 
 public class ConsoleUtils {
@@ -19,13 +18,13 @@ public class ConsoleUtils {
       scanner.nextLine();
 
       if (value < 0) {
-        System.out.println("Ingresa un número positivo.");
+        System.out.println("Ingresa un numero positivo.");
         return getInteger(message);
       }
 
       return value;
     } catch (Exception e) {
-      System.err.println("Ingresa un número con formato valido.");
+      System.err.println("Ingresa un numero con formato valido.");
       scanner.nextLine();
       return getInteger(message);
     }
@@ -38,13 +37,13 @@ public class ConsoleUtils {
       scanner.nextLine();
 
       if (value < 0 || value > 5) {
-        System.err.println("Ingresa un número entre 0 y 5.");
+        System.err.println("Ingresa un numero entre 0 y 5.");
         return getRating(message);
       }
 
       return value;
     } catch (Exception e) {
-      System.err.println("Ingresa un número con formato valido.");
+      System.err.println("Ingresa un numero con formato valido.");
       scanner.nextLine();
       return getRating(message);
     }
