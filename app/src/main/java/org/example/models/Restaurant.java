@@ -69,7 +69,30 @@ public class Restaurant implements IObservable {
     }
   }
 
-  // Getters y Setters
+  @Override
+  public String toString() {
+    StringBuilder restaurantString = new StringBuilder("\n=======================================================\n");
+    restaurantString
+            .append("Nombre: ").append(name).append("\n")
+            .append("Ciudad: ").append(city).append("\n")
+            .append("Puntuacion promedio: (").append(getAverageRating()).append(") Stars\n")
+            .append("Menu: ").append(menu.getName()).append("\n")
+            .append("Platos: \n");
+
+    for (Dish dish : menu.getDishes()) {
+      restaurantString.append(dish.toString()).append("\n");
+    }
+    return restaurantString.toString();
+  }
+
+  public Integer getRestaurantId() {
+    return restaurantId;
+  }
+
+  public void setRestaurantId(Integer restaurantId) {
+    this.restaurantId = restaurantId;
+  }
+
   public String getName() {
     return name;
   }
