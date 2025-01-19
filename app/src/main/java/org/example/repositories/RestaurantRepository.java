@@ -36,8 +36,8 @@ public class RestaurantRepository {
     restaurants.put(restaurant.getRestaurantId(), restaurant);
   }
 
-  public Restaurant getRestaurant(String name) {
-    return restaurants.get(name);
+  public Restaurant getRestaurant(Integer restaurantId) {
+    return restaurants.get(restaurantId);
   }
 
   public Boolean removeRestaurant(Integer id) {
