@@ -44,8 +44,8 @@ public class MenuRepository {
     return false;
   }
 
-  public void removeMenu(String name) {
-    menus.remove(name);
+  public void removeMenu(Integer menuId) {
+    menus.remove(menuId);
   }
 
   public List<Menu> getAllMenus() {
